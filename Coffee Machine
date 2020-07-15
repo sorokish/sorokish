@@ -1,0 +1,121 @@
+class CoffeeMachine:
+    w = 400
+    m = 540
+    be = 120
+    c = 9
+    s = 550
+    def act(self):
+        self.action = str
+        while self.action != 'exit':
+            print('Write action (buy, fill, take, remaining, exit)')
+            self.action = input()
+            print()
+            if self.action == "buy":
+                self.bu()
+            if self.action == "fill":
+                self.fill()
+            if self.action == 'take':
+                self.take()
+            if self.action == 'remaining':
+                self.remaining()
+            if self.action =='exit':
+                break
+    def bu(self):
+        print('What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:')
+        self.buy = input()
+        if self.buy == '1':
+            self.espresso()
+        if self.buy == '2':
+            self.latte()
+        if self.buy == '3':
+            self.cappuccino()
+        if self.buy == 'back':
+            self.act()
+
+    def espresso(self):
+        if self.w > 250 and self.be > 16 and self.c > 0:
+            print('I have enough resources, making you a coffee!')
+            print()
+            self.w -= 250
+            self.be -= 16
+            self. c -= 1
+            self.s += 4
+        elif self.w < 250:
+            print('Sorry, not enough water')
+            print()
+        elif self.be < 16:
+            print('Sorry, not enough beans')
+            print()
+        elif self.c < 1:
+            print('Sorry, not enough cups')
+            print()
+    def latte(self):
+        if self.w > 350 and self.m > 75 and self.be > 20 and self.c > 0:
+            print('I have enough resources, making you a coffee!')
+            print()
+            self. w -= 350
+            self.m -= 75
+            self.be -= 20
+            self.c -= 1
+            self.s += 7
+        elif self.w < 350:
+            print('Sorry, not enough water')
+            print()
+        elif self.m < 75:
+            print('Sorry, not enough milk')
+            print()
+        elif self.be < 16:
+            print('Sorry, not enough beans')
+            print()
+        elif self.c < 1:
+            print('Sorry, not enough cups')
+            print()
+    def cappuccino(self):
+        if self.w > 200 and self.m > 100 and self.be > 12 and self.c > 0:
+            print('I have enough resources, making you a coffee!')
+            print()
+            self.w -= 200
+            self.m -= 100
+            self.be -= 12
+            self.c -= 1
+            self.s += 6
+        elif self.w < 200:
+            print('Sorry, not enough water')
+            print()
+        elif self.m < 100:
+            print('Sorry, not enough milk')
+            print()
+        elif self.be < 12:
+            print('Sorry, not enough beans')
+            print()
+        elif self.c < 1:
+            print('Sorry, not enough cups')
+            print()
+    def fill(self):
+        print('Write how many ml of water do you want to add:')
+        self.a = int(input())
+        print('Write how many ml of milk do you want to add:')
+        self.b = int(input())
+        print('Write how many grams of coffee beans do you want to add:')
+        self.c1 = int(input())
+        print('Write how many disposable cups of coffee do you want to add:')
+        self.d = int(input())
+        print()
+        self.w += self.a
+        self.m += self.b
+        self.be += self.b
+        self.c += self.c1
+    def take(self):
+        print('I gave you $', self.s, sep='')
+        self.s = 0
+        print()
+    def remaining(self):
+        print('The coffee machine has:')
+        print(self.w, 'of water')
+        print(self.m, 'of milk')
+        print(self.be, 'of coffee beans')
+        print(self.c, 'of disposable cups')
+        print(self.s, 'of money')
+        print()
+a = CoffeeMachine()
+a.act()
